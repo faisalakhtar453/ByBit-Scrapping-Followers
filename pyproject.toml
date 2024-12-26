@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "bybitscrapping"
+version = "0.1.0"
+description = ""
+authors = ["Faisal Akhtar <128494332+faisalakhtar453@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+selenium = "^4.27.1"
+webdriver-manager = "^4.0.2"
+pymongo = "^4.10.1"
+python-dotenv = "^1.0.1"
+bs4 = "^0.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -62,7 +62,7 @@ def scrape_table_data(url):
         # Locate the table and extract data
         table = content_followers.find_element(By.TAG_NAME, "table")
         headers = [
-            ''.join(word.capitalize() for word in header.text.strip().split())
+            ''.join(word.capitalize() for word in header.text.strip().replace("TotalRoi(follower)", "TotalRoifollower").split())
             for header in table.find_elements(By.XPATH, ".//thead/tr/th")
         ]
         

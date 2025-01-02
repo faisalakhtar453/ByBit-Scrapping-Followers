@@ -13,6 +13,10 @@ from dotenv import load_dotenv
 from datetime import datetime, timezone
 from selenium.common.exceptions import NoSuchElementException
 
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from webdriver_manager.firefox import GeckoDriverManager
+
 # Load environment variables
 load_dotenv()
 
@@ -40,9 +44,15 @@ def insert_data(collection_name, data):
 
 def scrape_table_data(url):
     """Scrape table data from a webpage and store it in MongoDB."""
-    service = Service(ChromeDriverManager().install())
+    # service = Service(ChromeDriverManager().install())
+    service = Service(GeckoDriverManager().install())
     options = Options()
-    driver = webdriver.Chrome(service=service, options=options)
+
+    options.add_argument("--headless")
+
+    driver = webdriver.Firefox(service=service, options=options)
+
+    # driver = webdriver.Chrome(service=service, options=options)
 
     try:
         driver.get(url)
